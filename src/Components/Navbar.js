@@ -37,8 +37,8 @@ const Navbar = () => {
       backdrop: true,
     }).then((result) => {
       if (result.isConfirmed) {
-        // handle logout logic here
-        navigate('/');
+        localStorage.clear();
+        navigate('/login');
       }
     });
   };
@@ -55,6 +55,7 @@ const Navbar = () => {
             <div className="flex items-center space-x-6">
               <Link to="/" className="text-gray-800 dark:text-white hover:text-indigo-600 dark:hover:text-indigo-400 font-medium">Home</Link>
               <Link to="/upload" className="text-gray-800 dark:text-white hover:text-indigo-600 dark:hover:text-indigo-400 font-medium">Analyze</Link>
+              <Link to="/accesslog" className="text-gray-800 dark:text-white hover:text-indigo-600 dark:hover:text-indigo-400 font-medium">Access Log</Link>
 
               {/* Settings Dropdown */}
               <div
@@ -115,6 +116,7 @@ const Navbar = () => {
             <nav className="flex flex-col space-y-4">
               <Link to="/" className="text-gray-800 dark:text-white hover:text-indigo-600 text-base">Home</Link>
               <Link to="/upload" className="text-gray-800 dark:text-white hover:text-indigo-600 text-base">Analyze</Link>
+              <Link to="/accesslog" className="text-gray-800 dark:text-white hover:text-indigo-600 text-base">Access Log</Link>
               <button
                 onClick={() => {
                   document.documentElement.classList.toggle('dark');

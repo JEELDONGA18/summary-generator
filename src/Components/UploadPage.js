@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import { CloudUpload, FileText, LoaderCircle, FileSearch } from 'lucide-react';
 
@@ -9,6 +9,14 @@ export default function Upload() {
   const [uploadMessage, setUploadMessage] = useState('');
   const [analysisReady, setAnalysisReady] = useState(false);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      window.location.href = "/login"; // Redirect if no token
+      return;
+    }
+  }, []);
 
   const handleFileChange = (e) => {
     setFile(e.target.files[0]);
@@ -72,7 +80,7 @@ export default function Upload() {
 
       if (response.ok && result.answer) {
         setUploadMessage('✅ Analysis complete! Redirecting to chat...');
-        setTimeout(() => navigate('/chat'), 1500);
+        setTimeout(() => navigate('/chat'), 100);
       } else {
         setUploadMessage('❌ Analysis failed. Try again.');
       }

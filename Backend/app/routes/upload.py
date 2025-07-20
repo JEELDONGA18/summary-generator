@@ -1,39 +1,56 @@
-# app.routs.upload.py
+# app/routes/upload.py
+
 from flask import Blueprint, request, jsonify
 import os
 from werkzeug.utils import secure_filename
+from datetime import datetime
 
-# Correct upload folder path (2 levels up from this file to reach /uploads)
+from app.models import FileUpload
+from app import db  # This is your SQLAlchemy instance
+
 UPLOAD_FOLDER = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../uploads'))
-
-# Allowed file extensions
 ALLOWED_EXTENSIONS = {'pdf', 'docx', 'txt'}
 
-# Create Blueprint
 upload_bp = Blueprint('upload', __name__)
 
-# Check allowed file type
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
-# Route to upload file
 @upload_bp.route('/upload', methods=['POST'])
 def upload_file():
     if 'file' not in request.files:
         return jsonify({'error': 'No file part in the request'}), 400
 
     file = request.files['file']
-    
+    user_id = request.form.get('user_id')  # Expecting this from the frontend
+
+    if not user_id:
+        return jsonify({'error': 'Missing user_id'}), 400
+
     if not file or file.filename.strip() == '':
         return jsonify({'error': 'No selected file'}), 400
 
     if allowed_file(file.filename):
         filename = secure_filename(file.filename)
-        os.makedirs(UPLOAD_FOLDER, exist_ok=True)  # Ensure upload directory exists
+        filetype = filename.rsplit('.', 1)[1].lower()
+        os.makedirs(UPLOAD_FOLDER, exist_ok=True)
         filepath = os.path.join(UPLOAD_FOLDER, filename)
         file.save(filepath)
+
+        # ✅ Insert into uploaded_files using SQLAlchemy model
+        uploaded_file = FileUpload(
+            filename=filename,
+            filepath=filepath,
+            filetype=filetype,
+            uploaded_at=datetime.utcnow(),
+            user_id=int(user_id)
+        )
+
+        db.session.add(uploaded_file)
+        db.session.commit()
+
         return jsonify({
-            'message': f'File {filename} uploaded successfully!',
+            'message': f'File {filename} uploaded and logged successfully!',
             'path': filepath
         }), 200
 

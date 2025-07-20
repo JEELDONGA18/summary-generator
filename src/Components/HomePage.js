@@ -20,7 +20,7 @@ const HomePage = () => {
 
       <div className="text-center max-w-3xl z-10 text-gray-900 dark:text-gray-100">
         <h1 className="text-5xl font-extrabold mb-6 drop-shadow-xl tracking-tight leading-tight dark:text-white">
-          Welcome to Your <span className="text-indigo-700 dark:text-yellow-300">Smart AI</span> Document Assistant 📄🤖
+          Welcome to Your <span className="text-indigo-700 dark:text-yellow-300">SmartDocAI</span> Document Assistant 📄🤖
         </h1>
 
         <p className="text-lg mb-10 font-medium tracking-wide leading-relaxed text-gray-700 dark:text-gray-300">

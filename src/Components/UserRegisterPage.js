@@ -15,12 +15,11 @@ export default function RegisterPage() {
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
-    c_full_name: "",
-    c_email: "",
-    c_password: "",
-    confirmPassword: "",
-    c_phone: "",
-    c_country: "",
+    full_name: "",
+    email: "",
+    password: "",
+    phone: "",
+    country: "",
   });
 
   const [errors, setErrors] = useState({});
@@ -35,20 +34,20 @@ export default function RegisterPage() {
 
   const validateField = (name, value) => {
     switch (name) {
-      case "c_full_name":
+      case "full_name":
         return !value || value.length > 20 ? "Name is required and must be under 20 characters." : "";
-      case "c_email":
+      case "email":
         return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value) ? "" : "Enter a valid email address.";
-      case "c_phone":
+      case "phone":
         return /^\d{10}$/.test(value) ? "" : "Phone number must be exactly 10 digits.";
-      case "c_country":
+      case "country":
         return countries.includes(value) ? "" : "Please select a valid country.";
-      case "c_password":
+      case "password":
         return /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,15}$/.test(value)
           ? ""
           : "Password must be 8-15 characters with upper, lower, digit, and special character.";
       case "confirmPassword":
-        return value === formData.c_password ? "" : "Passwords do not match.";
+        return value === formData.password ? "" : "Passwords do not match.";
       default:
         return "";
     }
@@ -91,7 +90,7 @@ export default function RegisterPage() {
       try {
         const payload = { ...formData };
         delete payload.confirmPassword;
-        const response = await fetch("http://localhost:5002/api/UserApi/Register", {
+        const response = await fetch("http://localhost:5000/register", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(payload),
@@ -114,7 +113,7 @@ export default function RegisterPage() {
   return (
     <>
       <ToastContainer />
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-purple-600 via-pink-500 to-red-400 px-4 py-8 overflow-y-auto">
+      <div className="pt-20 min-h-screen flex items-center justify-center bg-gradient-to-br from-purple-600 via-pink-500 to-red-400 px-4 py-8 overflow-y-auto">
         <div className="flex flex-col md:flex-row w-full max-w-5xl shadow-2xl rounded-3xl overflow-hidden backdrop-blur-md bg-white/30 border border-white/20">
 
           {/* 🔵 Left Panel */}
@@ -122,15 +121,15 @@ export default function RegisterPage() {
             <div className="flex flex-col items-center text-center space-y-6 relative">
               <div className="relative w-36 h-36 animate-float">
                 <div className="absolute inset-0 rounded-full bg-white shadow-xl flex items-center justify-center text-4xl font-bold text-blue-700 z-10">
-                  TV
+                  SD
                 </div>
                 <div className="absolute inset-0 rounded-full border-4 border-white animate-pulse-glow z-0"></div>
               </div>
               <h2 className="text-4xl font-bold text-white drop-shadow-lg" data-aos="fade-down">
-                Join TrustVault 🚀
+                Join SmartDocAI 🚀
               </h2>
               <p className="text-white text-lg max-w-md drop-shadow-sm" data-aos="fade-up" data-aos-delay="200">
-                Experience the future of secure financial services with luxury style and high-grade security.
+                Experience to securely analyzes internal documents and answers user queries instantly.
               </p>
             </div>
           </div>
@@ -140,68 +139,68 @@ export default function RegisterPage() {
             data-aos={window.innerWidth < 768 ? "zoom-in" : ""}
             data-aos-delay={window.innerWidth < 768 ? "100" : ""}
           >
-            <h2 className="text-2xl bg-gradient-to-r from-indigo-500 via-pink-500 to-yellow-500 text-transparent bg-clip-text font-bold mb-6 text-center text-3x1  ">Create your TrustVault Account</h2>
+            <h2 className="text-2xl bg-gradient-to-r from-indigo-500 via-pink-500 to-yellow-500 text-transparent bg-clip-text font-bold mb-6 text-center text-3x1  ">Create your SmartDocAI Account</h2>
             <form onSubmit={handleSubmit} className="space-y-5">
               {/* Full Name */}
               <div className="relative">
                 <input
                   type="text"
-                  name="c_full_name"
-                  value={formData.c_full_name}
+                  name="full_name"
+                  value={formData.full_name}
                   onChange={handleChange}
-                  className={`peer w-full border ${errors.c_full_name ? 'border-red-500' : 'border-gray-300'} bg-white rounded-xl px-4 pt-6 pb-2 focus:outline-none focus:ring-2 focus:ring-pink-500 placeholder-transparent`}
+                  className={`peer w-full border ${errors.full_name ? 'border-red-500' : 'border-gray-300'} bg-white rounded-xl px-4 pt-6 pb-2 focus:outline-none focus:ring-2 focus:ring-pink-500 placeholder-transparent`}
                   placeholder="Full Name"
                   required
                 />
                 <label className="absolute left-4 top-1 text-gray-500 text-sm transition-all peer-focus:top-1 peer-focus:text-sm peer-focus:text-pink-500">Full Name</label>
-                {errors.c_full_name && <p className="text-red-500 text-xs mt-1">{errors.c_full_name}</p>}
+                {errors.full_name && <p className="text-red-500 text-xs mt-1">{errors.full_name}</p>}
               </div>
 
               {/* Email */}
               <div className="relative">
                 <input
                   type="email"
-                  name="c_email"
-                  value={formData.c_email}
+                  name="email"
+                  value={formData.email}
                   onChange={handleChange}
-                  className={`peer w-full border ${errors.c_email ? 'border-red-500' : 'border-gray-300'} bg-white rounded-xl px-4 pt-6 pb-2 focus:outline-none focus:ring-2 focus:ring-pink-500 placeholder-transparent`}
+                  className={`peer w-full border ${errors.email ? 'border-red-500' : 'border-gray-300'} bg-white rounded-xl px-4 pt-6 pb-2 focus:outline-none focus:ring-2 focus:ring-pink-500 placeholder-transparent`}
                   placeholder="Email"
                   required
                 />
                 <label className="absolute left-4 top-1 text-gray-500 text-sm transition-all peer-focus:top-1 peer-focus:text-sm peer-focus:text-pink-500">Email</label>
-                {errors.c_email && <p className="text-red-500 text-xs mt-1">{errors.c_email}</p>}
+                {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email}</p>}
               </div>
 
               {/* Phone */}
               <div className="relative">
                 <input
                   type="text"
-                  name="c_phone"
+                  name="phone"
                   inputMode="numeric"
-                  value={formData.c_phone}
+                  value={formData.phone}
                   maxLength={10}
                   onKeyDown={handlePhoneInput}
                   onPaste={handlePhonePaste}
                   onChange={(e) => {
                     const value = e.target.value.replace(/\D/g, "");
-                    setFormData({ ...formData, c_phone: value });
-                    setErrors((prev) => ({ ...prev, c_phone: validateField("c_phone", value) }));
+                    setFormData({ ...formData, phone: value });
+                    setErrors((prev) => ({ ...prev, phone: validateField("phone", value) }));
                   }}
-                  className={`peer w-full border ${errors.c_phone ? 'border-red-500' : 'border-gray-300'} bg-white rounded-xl px-4 pt-6 pb-2 focus:outline-none focus:ring-2 focus:ring-pink-500 placeholder-transparent`}
+                  className={`peer w-full border ${errors.phone ? 'border-red-500' : 'border-gray-300'} bg-white rounded-xl px-4 pt-6 pb-2 focus:outline-none focus:ring-2 focus:ring-pink-500 placeholder-transparent`}
                   placeholder="Phone Number"
                   required
                 />
                 <label className="absolute left-4 top-1 text-gray-500 text-sm transition-all peer-focus:top-1 peer-focus:text-sm peer-focus:text-pink-500">Phone Number</label>
-                {errors.c_phone && <p className="text-red-500 text-xs mt-1">{errors.c_phone}</p>}
+                {errors.phone && <p className="text-red-500 text-xs mt-1">{errors.phone}</p>}
               </div>
 
               {/* Country */}
               <div className="relative">
                 <select
-                  name="c_country"
-                  value={formData.c_country}
+                  name="country"
+                  value={formData.country}
                   onChange={handleChange}
-                  className={`peer w-full border ${errors.c_country ? 'border-red-500' : 'border-gray-300'} bg-white rounded-xl px-4 pt-6 pb-3 pr-12 text-lg focus:outline-none focus:ring-2 focus:ring-pink-500 appearance-none`}
+                  className={`peer w-full border ${errors.country ? 'border-red-500' : 'border-gray-300'} bg-white rounded-xl px-4 pt-6 pb-3 pr-12 text-lg focus:outline-none focus:ring-2 focus:ring-pink-500 appearance-none`}
                   required
                 >
                   <option value="" disabled hidden></option>
@@ -215,13 +214,13 @@ export default function RegisterPage() {
                     <path fillRule="evenodd" d="M10 14a1 1 0 01-.7-.3l-4-4a1 1 0 011.4-1.4L10 11.6l3.3-3.3a1 1 0 011.4 1.4l-4 4a1 1 0 01-.7.3z" clipRule="evenodd" />
                   </svg>
                 </div>
-                {errors.c_country && <p className="text-red-500 text-xs mt-1">{errors.c_country}</p>}
+                {errors.country && <p className="text-red-500 text-xs mt-1">{errors.country}</p>}
               </div>
 
               {/* Password and Confirm Password */}
               {[{
                 label: "Password",
-                name: "c_password",
+                name: "password",
                 type: showPassword ? "text" : "password",
                 toggle: () => setShowPassword(!showPassword),
                 icon: showPassword ? <EyeOff size={20} /> : <Eye size={20} />,

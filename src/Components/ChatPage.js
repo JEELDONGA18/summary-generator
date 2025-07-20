@@ -7,6 +7,14 @@ export default function ChatPage() {
   const [loading, setLoading] = useState(false);
   const chatEndRef = useRef(null);
 
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      window.location.href = "/login"; // Redirect if no token
+      return;
+    }
+  }, []);
+
   const handleSend = async () => {
     if (!input.trim()) return;
 

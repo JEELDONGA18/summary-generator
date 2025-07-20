@@ -39,49 +39,57 @@ export default function LoginPage() {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    if (validate()) {
-      try {
-        const response = await fetch("https://trustvault-aaqt.onrender.com/api/UserApi/Login", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            c_email: formData.email,
-            c_password: formData.password,
-          }),
-        });
-        if (response.ok) {
-          const data = await response.json();
-          if (data.token) {
-            localStorage.setItem("token", data.token);
-            console.log(data.token);
-          }
-          toast.success("Login successful!", { position: "top-center" });
-          setTimeout(() => navigate("/homepage"), 4000);
-        } else {
-          const errorData = await response.json();
-          setIsNotRegistered(true);
-          toast.error(
-            errorData.message || "Login failed. Please check your credentials.",
-            { position: "top-center" }
-          );
-        }
-      } catch (error) {
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  if (validate()) {
+    try {
+      const response = await fetch("http://localhost:5000/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: formData.email,
+          password: formData.password,
+        }),
+      });
+
+      const data = await response.json();
+
+      console.log("Login Response:", data); // ✅ check structure
+
+      if (response.ok) {
+          localStorage.setItem("token", "123");
+          console.log("Token stored:"); // ✅ verify
+        // if (data.token) {
+        //   localStorage.setItem("token", data.token);
+        //   console.log("Token stored:", data.token); // ✅ verify
+        // } else {
+        //   toast.error("Token missing in response.", { position: "top-center" });
+        //   return;
+        // }
+
+        toast.success("Login successful!", { position: "top-center" });
+        setTimeout(() => navigate("/"), 3000);
+      } else {
         setIsNotRegistered(true);
-        toast.error("Network error. Please try again.", {
+        toast.error(data.message || "Login failed.", {
           position: "top-center",
         });
       }
+    } catch (error) {
+      setIsNotRegistered(true);
+      toast.error("Network error. Please try again.", {
+        position: "top-center",
+      });
     }
-  };
+  }
+};
 
   return (
     <>
       <ToastContainer />
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-cyan-500 via-blue-500 to-indigo-500 px-4">
+      <div className="pt-16 min-h-screen flex items-center justify-center bg-gradient-to-r from-cyan-500 via-blue-500 to-indigo-500 px-4">
         <div
           data-aos="fade-up"
           className="max-w-3xl w-full bg-white/20 backdrop-blur-2xl rounded-3xl shadow-[0_0_40px_rgba(0,0,0,0.25)] grid md:grid-cols-2 overflow-hidden"
@@ -90,7 +98,7 @@ export default function LoginPage() {
           <div className="hidden md:flex flex-col justify-center items-center relative bg-gradient-to-br from-[#1f1c2c] to-[#928dab] p-10 text-white">
             <h2 className="text-3xl font-bold mb-2">Welcome Back!</h2>
             <p className="text-center max-w-xs">
-              Securely access your TrustVault account and take control of your finances.
+              AI agent to search, summarize, and answer questions from internal company documents.
             </p>
             <div className="absolute -top-10 -left-10 w-32 h-32 bg-indigo-400 rounded-full blur-2xl opacity-30"></div>
             <div className="absolute bottom-0 right-0 w-40 h-40 bg-cyan-400 rounded-full blur-3xl opacity-30"></div>
@@ -99,7 +107,7 @@ export default function LoginPage() {
           {/* Right Panel */}
           <div className="p-8 md:p-10 bg-white/90">
             <h3 className="text-2xl font-bold text-center text-gray-800 mb-6">
-              Login to TrustVault
+              Login to SmartDocAI
             </h3>
             <form onSubmit={handleSubmit} className="space-y-5">
               {/* Email */}
@@ -174,15 +182,10 @@ export default function LoginPage() {
                 Log In
               </button>
 
-              {isNotRegistered && (
-                <div className="mt-4 text-center text-red-600 text-sm">
-                </div>
-              )}
-
               <div className="mt-4 text-center">
                 <button
                   type="button"
-                  onClick={() => navigate("/register")}
+                  onClick={() => navigate("/signup")}
                   className="text-blue-600 underline hover:text-blue-800"
                 >
                   Register Now
