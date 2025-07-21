@@ -41,7 +41,7 @@ def upload_file():
         uploaded_file = FileUpload(
             filename=filename,
             filepath=filepath,
-            filetype=filetype,
+            file_type=filetype,
             uploaded_at=datetime.utcnow(),
             user_id=int(user_id)
         )

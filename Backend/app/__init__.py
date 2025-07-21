@@ -36,9 +36,11 @@ def create_app():
     from app.routes.upload import upload_bp
     from app.routes.chat import chat_bp
     from app.routes.auth import auth_bp
+    from app.routes.export_chat import export_bp
 
     app.register_blueprint(auth_bp)
     app.register_blueprint(upload_bp)
     app.register_blueprint(chat_bp)
+    app.register_blueprint(export_bp)
 
     return app

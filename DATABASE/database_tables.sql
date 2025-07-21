@@ -22,29 +22,7 @@ CREATE TABLE uploaded_files (
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 );
 
--- 3. Analyzed Data Table (Fixed)
-CREATE TABLE analyzed_data (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    file_id BIGINT UNSIGNED NOT NULL,
-    analysis_summary TEXT,
-    analysis_embeddings BLOB,
-    analyzed_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (file_id) REFERENCES uploaded_files(id) ON DELETE CASCADE
-);
-
--- 4. Chat History Table (Fixed)
-CREATE TABLE chat_history (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    user_id INT NOT NULL,
-    file_id BIGINT UNSIGNED,
-    message TEXT NOT NULL,
-    response TEXT NOT NULL,
-    timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (user_id) REFERENCES users(id),
-    FOREIGN KEY (file_id) REFERENCES uploaded_files(id)
-);
-
--- 5. Exported Chats Table
+-- 3. Exported Chats Table
 CREATE TABLE exported_chats (
     id SERIAL PRIMARY KEY,
     user_id INT NOT NULL,
@@ -54,3 +32,7 @@ CREATE TABLE exported_chats (
     emailed_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 );
+
+select * from users;
+select * from uploaded_files;
+select * from exported_chats;

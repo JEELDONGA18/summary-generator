@@ -1,5 +1,6 @@
 from . import db
 from flask_login import UserMixin
+from datetime import datetime
 
 class User(db.Model, UserMixin):
     __tablename__ = 'users'
@@ -17,14 +18,16 @@ class FileUpload(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     filename = db.Column(db.String(255), nullable=False)
     filepath = db.Column(db.String(255), nullable=False)
-    filetype = db.Column(db.String(50), nullable=False)
+    file_type = db.Column(db.String(50), nullable=False)
     uploaded_at = db.Column(db.DateTime, nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
 
-class AnalyzedData(db.Model):
-    __tablename__ = 'analyzed_data'
+class ExportedChat(db.Model):
+    __tablename__ = 'exported_chats'
 
     id = db.Column(db.Integer, primary_key=True)
-    file_id = db.Column(db.Integer, db.ForeignKey('uploaded_files.id'))
-    content = db.Column(db.Text, nullable=False)
-    processed_at = db.Column(db.DateTime, nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
+    file_name = db.Column(db.String(255), nullable=False)
+    file_format = db.Column(db.String(10), nullable=False)
+    file_path = db.Column(db.String(500), nullable=False)
+    emailed_at = db.Column(db.DateTime, default=datetime.utcnow)

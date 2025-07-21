@@ -1,0 +1,25 @@
+Q: Analyze this document
+A: This document is a sample Employee Recruitment and Selection Policy. It outlines the company's process for attracting and selecting external job candidates, emphasizing a commitment to equal opportunity.
+
+**Key elements of the policy include:**
+
+*   **Purpose:** To provide a rubric for recruiters and hiring managers to create an effective and discrimination-free hiring process.
+*   **Scope:** Applies to all employees involved in hiring and refers to all potential job candidates.
+*   **Recruitment and Selection Process:** Details the steps involved in hiring, from identifying the need for an opening to making an official offer. The first five stages are mandatory: Identify need for an opening, Decide whether to hire externally or internally, Review the job description and compose a job ad, Select appropriates sources (external or internal) for posting the opening, Decide on the selection stages and possible timeframe
+*   **Internal Job Postings:** Guidelines for posting jobs internally before recruiting external candidates.
+*   **Job Descriptions:** Instructions for creating clear and accurate job ads with specific content requirements (company description, role summary, responsibilities, requirements, how to apply) and tone.
+*   **Employee Selection Stages:** Outlines the standard hiring process (resume screening, phone screening, assignment, interview) and allows for adjustments based on the role. Resume screening and interview are compulsory in most cases.
+*   **Interview Feedback:** Emphasizes the importance of informing rejected candidates and encourages providing feedback (with HR approval), focusing on being brief, respectful, and job-related.
+*   **Revoked Offers:** Defines legitimate reasons for revoking a job offer and the formal notification process involving HR.
+
+The document serves as a starting point for creating a company-specific recruitment policy and includes a disclaimer that it's a general guideline, not a legal document.
+
+
+Q: hi
+A: Sorry, I can only answer questions related to the uploaded internal documents.
+
+
+Q: what is the document about
+A: This document is about our employee recruitment and selection policy, describing our process for attracting and selecting external job candidates. It can serve as a rubric that our recruiters and hiring managers can use to create an effective hiring process.
+
+

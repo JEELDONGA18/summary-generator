@@ -28,7 +28,7 @@ export default function ChatPage() {
       const response = await fetch('http://localhost:5000/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ question: input, filepath: uploadedFilePath }),
+        body: JSON.stringify({ question: input, filepath: uploadedFilePath,email: localStorage.getItem("email") }),
       });
 
       const data = await response.json();
@@ -50,23 +50,42 @@ export default function ChatPage() {
   };
 
   const handleExport = async () => {
+    const email = localStorage.getItem("email");
+    if (!email) return alert("Please log in again.");
+
     try {
-      const response = await fetch('http://localhost:5000/export-chat', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ chat: messages, format: 'pdf' }),
+      const res = await fetch("http://localhost:5000/export-chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
       });
 
-      const blob = await response.blob();
+      if (!res.ok) {
+        const errData = await res.json();
+        return alert("❌ " + errData.error);
+      }
+
+      const blob = await res.blob();
       const url = window.URL.createObjectURL(blob);
-      const link = document.createElement('a');
-      link.href = url;
-      link.setAttribute('download', 'chat_export.pdf');
-      document.body.appendChild(link);
-      link.click();
-      link.remove();
-    } catch (error) {
-      console.error('Export error:', error);
+      const a = document.createElement("a");
+
+      // Set filename
+      const timestamp = new Date().toISOString().replace(/[:.]/g, "-");
+      const filename = `SmartDocAI/chat_${timestamp}.pdf`;
+
+      a.href = url;
+      a.download = filename;
+      a.style.display = "none";
+      document.body.appendChild(a);
+      a.click();
+
+      setTimeout(() => {
+        window.URL.revokeObjectURL(url);
+        document.body.removeChild(a);
+      }, 1000);
+    } catch (err) {
+      console.error("Export failed:", err);
+      alert("Something went wrong during export.");
     }
   };
 

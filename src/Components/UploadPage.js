@@ -25,40 +25,47 @@ export default function Upload() {
   };
 
   const handleUpload = async () => {
-    if (!file) {
-      setUploadMessage('❌ Please select a file first!');
-      return;
+  if (!file) {
+    setUploadMessage('❌ Please select a file first!');
+    return;
+  }
+
+  const userId = localStorage.getItem("userId");
+  if (!userId) {
+    setUploadMessage("❌ User not found. Please log in again.");
+    return;
+  }
+
+  const formData = new FormData();
+  formData.append('file', file);
+  formData.append('user_id', userId);
+
+  try {
+    setUploading(true);
+    setUploadMessage('');
+
+    const response = await fetch('http://localhost:5000/upload', {
+      method: 'POST',
+      body: formData,
+    });
+
+    const result = await response.json();
+
+    if (response.ok) {
+      const uploadedFilePath = result.filepath || result.path;
+      localStorage.setItem('uploadedFilePath', uploadedFilePath);
+      setUploadMessage('✅ File uploaded! Now click Analyze to continue.');
+      setAnalysisReady(true);
+    } else {
+      setUploadMessage(`❌ ${result.error || "Upload failed. Please try again."}`);
     }
-
-    const formData = new FormData();
-    formData.append('file', file);
-
-    try {
-      setUploading(true);
-      setUploadMessage('');
-
-      const response = await fetch('http://localhost:5000/upload', {
-        method: 'POST',
-        body: formData,
-      });
-
-      const result = await response.json();
-
-      if (response.ok) {
-        const uploadedFilePath = result.filepath || result.path;
-        localStorage.setItem('uploadedFilePath', uploadedFilePath);
-        setUploadMessage('✅ File uploaded! Now click Analyze to continue.');
-        setAnalysisReady(true);
-      } else {
-        setUploadMessage('❌ Upload failed. Please try again.');
-      }
-    } catch (error) {
-      console.error('Upload failed:', error);
-      setUploadMessage('❌ Upload failed. Please try again.');
-    } finally {
-      setUploading(false);
-    }
-  };
+  } catch (error) {
+    console.error('Upload failed:', error);
+    setUploadMessage('❌ Upload failed. Please try again.');
+  } finally {
+    setUploading(false);
+  }
+};
 
   const handleAnalyze = async () => {
     setAnalyzing(true);

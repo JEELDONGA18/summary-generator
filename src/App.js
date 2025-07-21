@@ -6,7 +6,6 @@ import UploadPage from './Components/UploadPage';
 import ChatPage from './Components/ChatPage';
 import RegisterPage from './Components/UserRegisterPage';
 import LoginPage from './Components/UserLoginPage';
-import AccessLog from './Components/AccessLog';
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -27,7 +26,6 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/upload" element={<UploadPage />} />
         <Route path="/chat" element={<ChatPage />} />
-        <Route path="/accesslog" element={<AccessLog />} />
       </Routes>
     </Router>
   );

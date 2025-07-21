@@ -59,15 +59,10 @@ const handleSubmit = async (e) => {
       console.log("Login Response:", data); // ✅ check structure
 
       if (response.ok) {
-          localStorage.setItem("token", "123");
-          console.log("Token stored:"); // ✅ verify
-        // if (data.token) {
-        //   localStorage.setItem("token", data.token);
-        //   console.log("Token stored:", data.token); // ✅ verify
-        // } else {
-        //   toast.error("Token missing in response.", { position: "top-center" });
-        //   return;
-        // }
+        localStorage.setItem("token", "123");
+        localStorage.setItem("userId", data.user.id);
+        localStorage.setItem("email", data.user.email);
+        console.log("Token stored:"); 
 
         toast.success("Login successful!", { position: "top-center" });
         setTimeout(() => navigate("/"), 3000);
