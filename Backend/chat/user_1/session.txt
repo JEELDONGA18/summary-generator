@@ -25,3 +25,165 @@ Q: hi
 A: Sorry, I can only answer questions related to the uploaded internal documents.
 
 
+Q: Analyze this document
+A: Okay, here's an analysis of the provided "Statement of Financial Performance" document, covering the years 2008 and 2007:
+
+**Overall Financial Performance:**
+
+*   The organization experienced a surplus in both 2008 and 2007. However, the surplus decreased significantly from $34,436 in 2007 to $11,409 in 2008. This indicates a less favorable financial outcome in 2008 compared to the previous year.
+
+**Income Analysis:**
+
+*   **Total Income Increased:** Total income increased from $307,322 in 2007 to $388,210 in 2008.
+*   **Key Income Sources:**
+    *   **Grants:** A significant portion of the income comes from grants, with Federal, State, and Local Government grants contributing substantially. Notably, State Government grants were $0 in 2007 but increased to $48,000 in 2008. Federal grants also increased. Philanthropic grants decreased.
+    *   **Donations:** Donations decreased significantly from $93,510 in 2007 to $52,790 in 2008. This is a key factor contributing to the lower surplus in 2008.
+    *   **Sales of Goods & Services:** Sales increased considerably from $48,072 to $82,520.
+    *   **Sponsorship:** Sponsorship income increased.
+*   **Other Income:** Membership, Events, Interest, and Sundries also contributed to the total income, with most showing an increase in 2008.
+
+**Expenditure Analysis:**
+
+*   **Total Expenditure Increased:** Total expenditure increased from $272,886 in 2007 to $376,800 in 2008.
+*   **Key Expenditure Areas:**
+    *   **Salaries:** Salaries represent the largest expense, increasing significantly from $158,650 to $220,480.
+    *   **Superannuation & Workcover:** These employee-related costs also increased in line with the rise in salaries.
+    *   **Rent:** Rent increased, but not as significantly as some other expenses.
+    *   **Equipment:** Spending on equipment more than doubled.
+    *   **Fundraising Costs:** Fundraising costs increased, but the decrease in donations suggests a lower return on investment for these activities in 2008.
+*   **Other Expenses:** Most other expenditure categories showed increases, contributing to the overall rise in total expenditure.
+
+**Key Observations and Potential Concerns:**
+
+*   **Decreasing Surplus:** The significant decrease in surplus despite increased income and higher sales of goods and services warrants further investigation.
+*   **Dependence on Grants:** The organization relies heavily on grant funding, making it vulnerable to changes in government funding policies.
+*   **Decline in Donations:** The substantial drop in donations is a major concern and should be addressed with targeted fundraising strategies.
+*   **Increased Expenses:** The considerable increase in expenses, particularly salaries and equipment, needs to be carefully managed to ensure financial sustainability.
+
+
+Q: hi
+A: Sorry, I can only answer questions related to the uploaded internal documents.
+
+
+Q: what is the doument about??
+A: This document is a sample income and expenditure statement, also referred to as a statement of financial performance. It details the income and expenditure for the years 2008 and 2007.
+
+
+Q: give the summary of the document
+A: This document is a Statement of Financial Performance, comparing income and expenditure for 2008 and 2007.
+
+**In 2008:**
+
+*   Total Income was $388,210.
+*   Total Expenditure was $376,800.
+*   The Surplus was $11,409.
+
+**In 2007:**
+
+*   Total Income was $307,322.
+*   Total Expenditure was $272,886.
+*   The Surplus was $34,436.
+
+The document provides a breakdown of income sources (Grants, Sponsorship, Membership, Donations, Events, Sales, Interest, Sundries) and expenditure categories (Salaries, Superannuation, Workcover, Depreciation, Equipment, Telecommunications, Fundraising, Rent, etc.) for both years.
+
+
+Q: what is the highest profit
+A: Sorry, I can only answer questions related to the uploaded internal documents.
+
+
+Q: what is highest income
+A: Sorry, I can only answer questions related to the uploaded internal documents.
+
+
+Q: what is the higest salaries in 2008
+A: Sorry, I can only answer questions related to the uploaded internal documents.
+
+
+Q: what is the salary in 2008
+A: The salary in 2008 was 220,480.
+
+
+Q: Analyze this document
+A: Okay, here's an analysis of the provided "Statement of Financial Performance" document, covering the years 2007 and 2008:
+
+**Overall Financial Performance:**
+
+*   The organization experienced a significant decrease in surplus from 2007 to 2008. The surplus decreased from $34,436 in 2007 to $11,409 in 2008. This indicates a less favorable financial outcome in 2008 compared to the previous year.
+
+**Income:**
+
+*   **Total Income Increased:** Total income increased from $307,322 in 2007 to $388,210 in 2008, showing growth in revenue generation.
+*   **Key Income Sources:**
+    *   **Grants:** Increased from Federal and State Governments, decreased from Philanthropic organizations, and increased slightly from Local Government.
+    *   **Donations:** Decreased significantly from $93,510 in 2007 to $52,790 in 2008.
+    *   **Sales of Goods & Services:** Increased substantially from $48,072 to $82,520
+*   **Other Notable Changes in Income:** Sponsorship, Membership, Events, Interest, and Sundries all increased from 2007 to 2008.
+
+**Expenditure:**
+
+*   **Total Expenditure Increased:** Total expenditure increased from $272,886 in 2007 to $376,800 in 2008, indicating increased operational spending.
+*   **Key Expenditure Areas:**
+    *   **Salaries:** Increased substantially from $158,650 to $220,480.
+    *   **Equipment:** More than doubled from $8,402 to $17,294.
+    *   **Fundraising costs:** Increased from $11,534 to $17,400.
+    *   **Rent:** Increased from $30,160 to $32,576.
+*   **Other Notable Changes in Expenditures:** Superannuation, Workcover, Depreciation, Telecommunications, Computer consumables, Conferences, Gas/Light/Power/Water, Insurance, Travel, Printing, Postage & freight, and Sundries all increased from 2007 to 2008. Staff amenities and Repairs & maintenance decreased from 2007 to 2008.
+
+**Key Trends and Observations:**
+
+*   The organization experienced significant growth in both income and expenditure.
+*   The decrease in surplus is primarily attributable to the increase in total expenditure outweighing the increase in total income.
+*   The organization became more reliant on government grants and sales of goods and services in 2008 compared to 2007.
+*   Donations and Philanthropic grants decreased significantly.
+*   The largest increases in expenditure were in Salaries, Equipment, and Fundraising costs.
+
+
+Q: hi
+A: Sorry, I can only answer questions related to the uploaded internal documents.
+
+
+Q: what is the document about
+A: The document is a sample income and expenditure statement, also referred to as a statement of financial performance. It details the income and expenditure for 2008 and 2007.
+
+
+Q: what is the total salary in 2008
+A: The total salary in 2008 was 220,480.
+
+
+Q: Analyze this document
+A: This document is a Sample Income and Expenditure Statement, also known as a Statement of Financial Performance, comparing the financial years 2008 and 2007.
+
+**Income:**
+
+*   Total income increased from $307,322 in 2007 to $388,210 in 2008.
+*   Notable changes in income sources include:
+    *   Federal Government Grants increased from $32,000 to $56,000.
+    *   State Government Grants increased from $0 to $48,000.
+    *   Philanthropic Grants decreased from $55,150 to $37,400.
+    *   Donations decreased significantly from $93,510 to $52,790.
+    *   Sales of goods & services increased from $48,072 to $82,520.
+
+**Expenditure:**
+
+*   Total expenditure increased from $272,886 in 2007 to $376,800 in 2008.
+*   The largest expenditure is Salaries, which increased from $158,650 to $220,480.
+*   Other notable increases in expenditure include Equipment, Fundraising costs and Rent.
+
+**Surplus/Deficit:**
+
+*   The organization had a surplus in both years.
+*   However, the surplus decreased from $34,436 in 2007 to $11,409 in 2008. This is due to the increase in expenditure being greater than the increase in income.
+
+
+Q: hi
+A: Sorry, I can only answer questions related to the uploaded internal documents.
+
+
+Q: what is the document abbout
+A: The document is a sample income and expenditure statement, also referred to as a Statement of Financial Performance. It details the income and expenditure for 2008 and 2007.
+
+
+Q: what is the higehst salary in 2008
+A: The highest salary in 2008 was $220,480.
+
+
